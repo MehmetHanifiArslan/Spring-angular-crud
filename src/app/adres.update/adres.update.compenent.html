@@ -1,0 +1,32 @@
+<div class="text-left mb-4">
+    <h3 class="display-4 text-primary">Yeni Adres Ekle</h3>
+</div>
+<form #adresAddForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <input type="text" placeholder="mahalle adı giriniz" #mahalle="ngModel" [(ngModel)]="adres.mahalle"
+            class="form-control" name="mahalle" id="mahalle" required>
+        <div *ngIf="mahalle.invalid&&sokak.dirty" class="alert alert-danger mt-2"><small>mahalle adı gereklidir.</small></div>
+    </div>
+    <div class="form-group">
+        <input type="text" placeholder="sokak adı giriniz" #sokak="ngModel" [(ngModel)]="adres.sokak"
+            class="form-control" name="sokak" id="sokak" required>
+        <div *ngIf="sokak.invalid&&sokak.dirty" class="alert alert-danger mt-2"><small>sokak adı gereklidir.</small></div>
+    </div>
+    <div class="form-group">
+        <input type="text" placeholder="no giriniz " #no="ngModel"
+            [(ngModel)]="adres.no" class="form-control" name="price" id="no" required>
+        <div *ngIf="no.invalid&&no.dirty" class="alert alert-danger mt-2"><small>no gereklidir.</small>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <input type="text" placeholder="daire no  giriniz " #daire="ngModel"
+        [(ngModel)]="adres.daire" class="form-control" name="daire" id="daire" required>
+    <div *ngIf="no.invalid&&no.dirty" class="alert alert-danger mt-2"><small>daire no gereklidir.</small> </div>
+
+
+</div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="adresAddForm.invalid">Adres Güncelle</button>
+    
+</form>
